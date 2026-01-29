@@ -1,1 +1,5 @@
-Command to run from root => uvicorn backend.run:app --reload
+Python 3.12 is required.
+
+Command to run from root:
+```bash
+uvicorn backend.run:app --reload
