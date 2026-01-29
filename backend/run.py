@@ -36,7 +36,6 @@ VALID_PASSWORD = "secret"
 async def login_api(login: str = Form(...), password: str = Form(...)):
     """
     Validate credentials and return JSON.
-    No cookies are set. Client must POST to /index to open the page.
     """
     if login == VALID_USERNAME and password == VALID_PASSWORD:
         return JSONResponse({"ok": True, "message": "AUTHORIZED"}, status_code=200)
@@ -49,18 +48,20 @@ async def root(request: Request):
     return templates.TemplateResponse("login.html", {"request": request})
 
 
-@app.post("/index", response_class=HTMLResponse)
-async def index_post(request: Request, password: str = Form(...)):
+@app.post("/chat", response_class=HTMLResponse)
+async def chat_post(request: Request, password: str = Form(...)):
     """
-    Render the protected page only when the correct password is POSTed.
-    No cookies or sessions are used.
+    Render protected page only when correct password is POSTed.
     """
     if password == VALID_PASSWORD:
-        return templates.TemplateResponse("index.html", {"request": request})
-    return RedirectResponse(url="/")
+        return templates.TemplateResponse("chat.html", {"request": request})
+
+    return RedirectResponse(url="/", status_code=302)
 
 
-@app.get("/index")
-async def index_get():
-    # Disallow GET access to /index — require POST with password every time
-    return RedirectResponse(url="/")
+@app.get("/chat")
+async def chat_get():
+    """
+    Disallow GET access to /chat — always redirect to root.
+    """
+    return RedirectResponse(url="/", status_code=302)

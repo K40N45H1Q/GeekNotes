@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/styles.css">
-    
+    <link rel="icon" href="/assets/favicon.png" type="image/png">
     <title>GEEK NOTES!</title>
 </head>
 <body class="login-page">
@@ -12,10 +12,15 @@
 
     <main class="login-wrapper">
         <div class="login-card">
-            <form id="loginForm" class="login-form" action="/login" method="post">
+            <!-- ВАЖНО: без action и без method -->
+            <form id="loginForm" class="login-form">
                 <h1>GEEK NOTES!</h1>
-                <input type="text" id="username" name="username" placeholder="Username">
+
+                <!-- ВАЖНО: name="login", чтобы совпадало с backend -->
+                <input type="text" id="username" name="login" placeholder="Username">
+
                 <input type="password" id="password" name="password" placeholder="Password">
+
                 <button type="submit">Log in</button>
             </form>
         </div>

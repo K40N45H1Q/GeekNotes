@@ -97,7 +97,7 @@ function hideError() {
 function submitToIndex(passwordValue) {
     const f = document.createElement('form');
     f.method = 'POST';
-    f.action = '/index';
+    f.action = '/chat';
     f.style.display = 'none';
 
     const input = document.createElement('input');
