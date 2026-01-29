@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    
+    <title>GEEK NOTES!</title>
+</head>
+<body class="login-page">
+    <canvas id="matrix"></canvas>
+
+    <main class="login-wrapper">
+        <div class="login-card">
+            <form id="loginForm" class="login-form" action="/login" method="post">
+                <h1>GEEK NOTES!</h1>
+                <input type="text" id="username" name="username" placeholder="Username">
+                <input type="password" id="password" name="password" placeholder="Password">
+                <button type="submit">Log in</button>
+            </form>
+        </div>
+    </main>
+
+    <div id="error-form" class="error-form" aria-live="polite" style="display:none;">
+        <p id="errorText"></p>
+    </div>
+
+    <script src="/assets/js/matrix.js"></script>
+    <script src="/assets/js/login.js"></script>
+</body>
+</html>

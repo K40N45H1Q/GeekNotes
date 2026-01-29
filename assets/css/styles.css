@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Single:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #20c20e;
+    text-decoration: none;
+
+    font-family: "Bitcount Single", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0,
+        "CRSV" 0.5,
+        "ELSH" 0,
+        "ELXP" 0;
+}
+
+body {
+    background-color: #000;
+    font-family: sans-serif;
+    height: 100vh;
+}
+
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 15px;
+}
+
+.login-page .login-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    z-index: 10;
+}
+
+.login-card {
+    width: 350px;
+    padding: 30px;
+    border: 2px solid #20c20e;
+    border-radius: 10px;
+    background-color: #000000c4;
+    text-align: center;
+}
+
+.login-card .login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    background: transparent;
+    padding: 0;
+    border: none;
+}
+
+.error-form {
+    position: fixed;
+    left: 0;
+    top: 0;
+    transform: translateY(-8px);
+    width: auto;
+    max-width: 420px;
+    padding: 18px 22px;
+    border-radius: 10px;
+    background-color: #000000d7;
+    border: 2px solid #20c20e;
+    color: #e6ffe6;
+    font-size: 15px;
+    box-sizing: border-box;
+    text-align: center;
+    z-index: 1200;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.22s ease, transform 0.28s cubic-bezier(.2,.9,.3,1), box-shadow 0.28s ease;
+}
+
+.login-form h1 {
+    margin-bottom: 15px;
+    font-size: 30px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    height: 40px;
+    font-size: 16px;
+    border: 1px solid #20c20e;
+    border-radius: 5px;
+    background-color: rgba(17, 17, 17, 0.7);
+    color: #20c20e;
+    text-align: center;
+    outline: none;
+    caret-color: transparent;
+    margin-bottom: 5px;
+}
+
+.login-form input::placeholder {
+    color: #20c20e;
+    opacity: 0.7;
+}
+
+.login-form input:focus::placeholder {
+    color: transparent;
+}
+
+.login-form input:focus {
+    caret-color: #20c20e;
+    caret-shape: block;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #20c20e;
+    border-radius: 5px;
+    background-color: rgba(17, 17, 17, 0.7);
+    color: #20c20e;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.login-form button:hover {
+    background-color: #20c20e;
+    color: #000;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* error box — фиксированная ширина, точно как форма (350px) */
+.error-form {
+    position: fixed;
+    width: 350px;                 /* ровно как .login-card */
+    left: 50%;                    /* центрируем по горизонтали относительно окна */
+    transform: translateX(-50%) translateY(-20px);
+    top: 0;                       /* верх будет задаваться JS (только top) */
+    max-width: 420px;
+    padding: 18px 22px;
+    border-radius: 10px;
+    background-color: #000000d7;
+    border: 2px solid #20c20e;
+    color: #e6ffe6;
+    font-size: 15px;
+    box-sizing: border-box;
+    text-align: center;
+    z-index: 1200;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.error-form.active {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1.01);
+    pointer-events: auto;
+    box-shadow: 0 14px 36px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+}
+
+#errorText {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+
+.error-form p {
+    margin: 0;
+    font-size: 16px;
+}
