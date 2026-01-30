@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <link rel="icon" href="/assets/favicon.png" type="image/png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/assets/css/styles.css"/>
+    <link rel="icon" href="/assets/favicon.png" type="image/png"/>
     <title>GEEK NOTES!</title>
 </head>
 <body class="login-page">
@@ -12,14 +12,11 @@
 
     <main class="login-wrapper">
         <div class="login-card">
-            <!-- ВАЖНО: без action и без method -->
-            <form id="loginForm" class="login-form">
+            <form id="loginForm" class="login-form" action="/chat" method="post">
                 <h1>GEEK NOTES!</h1>
 
-                <!-- ВАЖНО: name="login", чтобы совпадало с backend -->
-                <input type="text" id="username" name="login" placeholder="Username">
-
-                <input type="password" id="password" name="password" placeholder="Password">
+                <input type="text" id="username" name="login" placeholder="Username" autocomplete="username" />
+                <input type="password" id="password" name="password" placeholder="Password" autocomplete="current-password" />
 
                 <button type="submit">Log in</button>
             </form>

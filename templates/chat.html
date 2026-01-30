@@ -1,24 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <link rel="icon" href="/assets/favicon.png" type="image/png">
-    <title>GEEK NOTES</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <title>GEEK NOTES - Chat</title>
 </head>
 <body>
-    <canvas id="matrix"></canvas>
+  <canvas id="matrix"></canvas>
 
-    <div class="chat-container">
-        <div class="chat-box">
-            <div class="messages" id="messages"></div>
+  <div class="chat-container">
+    <div class="chat-box">
+      <div class="messages" id="messages" role="log" aria-live="polite"></div>
 
-            <input class="chat" id="chatInput" type="text" placeholder="Enter your message">
-        </div>
+      <div class="input-row">
+        <input class="chat" id="chatInput" type="text" placeholder="Enter your message" autocomplete="off" />
+            <button class="send-btn">
+                <svg viewBox="0 0 24 24" class="send-icon">
+                    <path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/>
+                </svg>
+            </button>
+      </div>
     </div>
+  </div>
 
-    <script src="/assets/js/matrix.js"></script>
-    <script src="/assets/js/chat.js"></script>
+  <!-- Передаём username и историю через data-атрибуты -->
+  <div id="user-data"
+       data-username="{{ username | default('', true) }}"
+       data-history='{{ messages | tojson | default("[]") }}'
+       style="display:none;"></div>
+
+  <script src="/assets/js/matrix.js"></script>
+  <script src="/assets/js/chat.js"></script>
 </body>
 </html>
